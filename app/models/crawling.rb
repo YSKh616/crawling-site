@@ -1,0 +1,2 @@
+class Crawling < ApplicationRecord
+end

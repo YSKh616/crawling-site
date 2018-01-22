@@ -1,0 +1,10 @@
+= form_for @crawling do |f|
+  - if @crawling.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@crawling.errors.count, "error")} prohibited this crawling from being saved:"
+      %ul
+        - @crawling.errors.full_messages.each do |message|
+          %li= message
+
+  .actions
+    = f.submit 'Save'

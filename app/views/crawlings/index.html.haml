@@ -1,0 +1,26 @@
+%h1 Listing crawlings
+= form_tag(crawlings_path, method: :post) do
+  .word-input
+    = text_field_tag "crawlings[word]", "", placeholder: "キーワード"
+  .url-input1
+    = text_field_tag "crawlings[url1]", "", placeholder: "url"
+  .url-input2
+    = text_field_tag "crawlings[url2]", "", placeholder: "url"
+  %table
+    %thead
+      %tr
+        %th
+        %th
+        %th
+
+    %tbody
+      - @crawlings.each do |crawling|
+        %tr
+          %td= link_to 'Show', crawling
+          %td= link_to 'Edit', edit_crawling_path(crawling)
+          %td= link_to 'Destroy', crawling, method: :delete, data: { confirm: 'Are you sure?' }
+  .crawling-submit
+    = submit_tag "検索"
+  %br
+
+  = link_to 'New Crawling', new_crawling_path
