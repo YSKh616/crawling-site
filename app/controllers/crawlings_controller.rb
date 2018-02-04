@@ -26,10 +26,8 @@ class CrawlingsController < ApplicationController
   # POST /crawlings.json
   def create
     url1 = params[:crawlings][:url1]
-    binding.pry
     doc = Nokogiri::HTML(open(url1),nil,"utf-8")
     doc.css('a').each do |element|
-      binding.pry
       element[:href]
       element[:children]
     end
